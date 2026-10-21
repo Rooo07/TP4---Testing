@@ -57,3 +57,7 @@ def test_cupon_debug100_no_existe():
         codigo_de_error(calcular_descuento, 30000, 1, "DEBUG100", HOY_VIGENTE)
         == "CUPON_INVALIDO"
     )
+
+# R5 · Debe haber descuento a partir de cinco prendas
+def test_cinco_prendas_tienen_descuento_por_cantidad():
+    assert calcular_descuento(100000, 5, None, HOY_VIGENTE) == 10000
