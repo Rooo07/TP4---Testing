@@ -20,7 +20,6 @@ TALLES = ["XS", "S", "M", "L", "XL", "XXL"]
 CUPONES = {
     "EGRESADOS2026": {"tipo": "porcentaje", "valor": 0.15, "vence": date(2026, 11, 30)},
     "BIENVENIDA": {"tipo": "fijo", "valor": 3000, "minimo": 20000},
-    "DEBUG100": {"tipo": "porcentaje", "valor": 1.0, "vence": date(2099, 12, 31)},
 }
 
 ENVIOS = {
