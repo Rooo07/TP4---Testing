@@ -30,10 +30,15 @@ def test_cantidad_cero_es_invalida():
 
 
 # R7 · Los importes son Decimal, nunca float.
-def test_subtotal_de_un_buzo_es_el_decimal_exacto_del_catalogo():
-    carrito = [item("buzo")]
+def test_importes_son_decimal():
+    carrito = [item("buzo", "M", 2)]
 
-    subtotal = calcular_subtotal(carrito)
+    resultado = calcular_total(carrito, "CABA")
 
-    assert isinstance(subtotal, Decimal)
-    assert subtotal == Decimal("24999.90")
+    assert resultado == {
+        "subtotal": Decimal("49999.80"),
+        "descuento": Decimal("0.00"),
+        "envio": Decimal("2500.00"),
+        "total": Decimal("52499.80"),
+    }
+    assert all(isinstance(valor, Decimal) for valor in resultado.values())
