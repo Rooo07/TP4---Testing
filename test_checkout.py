@@ -61,3 +61,7 @@ def test_cupon_debug100_no_existe():
 # R5 · Debe haber descuento a partir de cinco prendas
 def test_cinco_prendas_tienen_descuento_por_cantidad():
     assert calcular_descuento(100000, 5, None, HOY_VIGENTE) == 10000
+    
+# Explota mensaje de error
+def test_zona_invalida_da_checkout_error():
+    assert codigo_de_error(calcular_envio, 10000, "MARTE") == "ZONA_INVALIDA"
