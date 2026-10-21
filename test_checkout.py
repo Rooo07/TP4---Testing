@@ -50,3 +50,10 @@ def test_cantidad_diez_es_valida():
 # R4 · No se debe aceptar el carrito vacio
 def test_carrito_vacio_es_invalido():
     assert codigo_de_error(calcular_total, [], "CABA") == "CARRITO_VACIO"
+    
+# R6 · No debe existir un cupon llamado DEBUG100
+def test_cupon_debug100_no_existe():
+    assert (
+        codigo_de_error(calcular_descuento, 30000, 1, "DEBUG100", HOY_VIGENTE)
+        == "CUPON_INVALIDO"
+    )
