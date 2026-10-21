@@ -46,3 +46,7 @@ def test_importes_son_decimal():
 # R3 · Se permiten 10 unidades
 def test_cantidad_diez_es_valida():
     validar_item(item(cantidad=10))
+    
+# R4 · No se debe aceptar el carrito vacio
+def test_carrito_vacio_es_invalido():
+    assert codigo_de_error(calcular_total, [], "CABA") == "CARRITO_VACIO"
