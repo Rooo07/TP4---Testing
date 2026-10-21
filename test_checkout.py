@@ -42,3 +42,7 @@ def test_importes_son_decimal():
         "total": Decimal("52499.80"),
     }
     assert all(isinstance(valor, Decimal) for valor in resultado.values())
+
+# R3 · Se permiten 10 unidades
+def test_cantidad_diez_es_valida():
+    validar_item(item(cantidad=10))
