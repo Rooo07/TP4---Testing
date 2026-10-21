@@ -101,8 +101,10 @@ def calcular_envio(subtotal, zona):
 
 def calcular_total(carrito, zona, cupon=None, fecha=date.today()):
     subtotal = calcular_subtotal(carrito)
-
     prendas = 0
+    if not carrito:
+        raise CheckoutError("CARRITO_VACIO", "El carrito no puede estar vacío")
+    
     for item in carrito:
         prendas = prendas + item["cantidad"]
 
